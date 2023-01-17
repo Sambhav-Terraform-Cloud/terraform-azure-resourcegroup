@@ -1,0 +1,22 @@
+module "azure_windows_virtual_machine" {
+    source = "./modules/create-puppet-linux-vm"
+    execution_count_no = var.execution_count_no
+    host_name          = var.host_name
+    resource_group_name = var.resource_group_name
+    business_unit      = var.business_unit
+    environment        = var.environment
+    application_name   = var.application_name
+    ip_allocation_type = var.ip_allocation_type
+    existing_subent_name = var.existing_subent_name
+    existing_network_name = var.existing_network_name
+    existing_network_rg   = var.existing_network_rg
+    linux_vm_size         = var.linux_vm_size
+    vm_admin_username     = var.vm_admin_username
+    vm_admin_password    = random_password.vm_password.result
+    os_disk_permission    = var.os_disk_permission
+    password_authentication  = var.password_authentication
+    storage_account_type   = var.storage_account_type
+    source_image_id        = var.source_image_id
+    security_domain        = var.security_domain
+    role                   = var.role
+}
